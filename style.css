@@ -1,5 +1,4 @@
-﻿/* 
-   1. CSS RESET & GLOBAL VARIABLES */
+﻿/* 1. CSS RESET & GLOBAL VARIABLES */
 :root {
     --primary-gradient: linear-gradient(45deg, #6F78FC, #9E76FC);
     --bg-overlay: rgba(15, 23, 42, 0.4);
@@ -88,7 +87,7 @@ body {
 }
 
 
-/*  4. DROPDOWN COMPONENTS*/
+/*  4. DROPDOWN COMPONENTS */
 .dropdown {
     position: relative;
     display: inline-block;
