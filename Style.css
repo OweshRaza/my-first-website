@@ -1,0 +1,244 @@
+﻿/* 
+   1. CSS RESET & GLOBAL VARIABLES */
+:root {
+    --primary-gradient: linear-gradient(45deg, #6F78FC, #9E76FC);
+    --bg-overlay: rgba(15, 23, 42, 0.4);
+    --text-color: #ffffff;
+    --dropdown-bg: #ffffff;
+    --dropdown-text: #1e293b;
+    --border-dark: #232943;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text-color);
+    background: url('8.jpg') no-repeat center center / cover fixed;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+/* 2. CUSTOM SCROLLBAR */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: var(--border-dark);
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-gradient);
+    border-radius: 6px;
+}
+
+
+/* 3. HEADER & NAVIGATION */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 3rem;
+    background: var(--bg-overlay);
+    backdrop-filter: blur(8px); /* Modern frosted-glass effect */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    letter-spacing: 0.5px;
+}
+
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+
+.nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    transition: opacity 0.2s ease;
+}
+
+
+.nav-link:hover {
+    opacity: 0.8;
+}
+
+
+/*  4. DROPDOWN COMPONENTS*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+
+.dropbtn {
+    background: transparent;
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+
+.dropbtn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--dropdown-bg);
+    min-width: 160px;
+    border-radius: 6px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    z-index: 10;
+}
+
+
+.dropdown-content a {
+    color: var(--dropdown-text);
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+
+.dropdown-content a:hover {
+    background-color: #f1f5f9;
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/*  5. HERO SECTION */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+
+.hero-actions {
+    display: flex;
+    gap: 1.5rem;
+}
+
+
+.hero-btn {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+
+.hero-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/*  6. INNER PAGES (About, Gallery, etc.)  */
+.page-container {
+    padding: 120px 2rem 2rem 2rem; /* 120px top padding to prevent the fixed header from covering content */
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 100vh;
+    text-align: center;
+}
+
+
+.page-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+
+.content-box {
+    background: var(--bg-overlay);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Gallery Grid System */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+
+.gallery-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    height: 200px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, background 0.3s ease;
+    cursor: pointer;
+}
+
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+}
